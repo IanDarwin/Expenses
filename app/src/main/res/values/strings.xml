@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Expenses</string>
+    <string name="title_expenseitem_detail">ExpenseItem Detail</string>
+
+    <!-- Commands -->
+    <string name="save">Save</string>
+
+    <!-- Field names on Controls -->
+    <string name="description">Description</string>
+    <string name="date">Date</string>
+    <string name="amount">Amount</string>
+</resources>
