@@ -1,0 +1,10 @@
+= Expenses
+
+This is the start of an Expense reporting app, based loosely on the one used in
+Learning Tree Course 2771, but done to modern coding conventions and using 
+Firebase or another modern storage mechanism.
+
+== Building
+
+Right now it builds with Gradle or Android Studio. Some steps were taken that
+might enable building with Eclipse and/or Maven later.
