@@ -1,23 +1,53 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+// Sample build.gradle used in making projects work with Android Studio AND ADT/AndMore 
+// while making only minimal or no changes to the filesystem hierarchy.
+// See https://androidcookbook.com/r/5203 for caveats and details!
+// See https://developer.android.com/studio/ for more on Android Studio.
+// See https://gradle.org/ for more on Gradle
+
+apply plugin: 'com.android.application'
 
 buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-    }
+	repositories {
+		jcenter()
+	}
+	dependencies {
+		classpath 'com.android.tools.build:gradle:2.3.3'
+	}
 }
 
-allprojects {
-    repositories {
-        jcenter()
-    }
+android {
+	compileSdkVersion 26
+	buildToolsVersion "25"
+
+	defaultConfig {
+		applicationId "com.darwinsys.expenses"
+		minSdkVersion 15
+		targetSdkVersion 26
+		versionCode 1
+		versionName "1.0"
+	}
+
+	sourceSets {
+		main {
+			res.srcDirs = ['res']
+			manifest.srcFile 'AndroidManifest.xml'
+		}
+	}
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+repositories {
+	jcenter()
+	mavenCentral()
+}
+
+dependencies {
+	compile fileTree(dir: 'libs', include: ['*.jar'])
+	androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+		exclude group: 'com.android.support', module: 'support-annotations'
+	})
+	compile 'com.android.support:appcompat-v7:26.+'
+	compile 'com.android.support:support-v4:26.+'
+	compile 'com.android.support:recyclerview-v7:26.+'
+	compile 'com.android.support:design:26.+'
+	testCompile 'junit:junit:4.12'
 }
